@@ -1,6 +1,8 @@
 #include "adafruit_684_Obj.h"
 
-
+static const int16_t OLED_WIDTH = 96;    ///< The width of the display
+static const int16_t OLED_HEIGHT = 64;   ///< The height of the display
+  
 adafruit_684_Obj::adafruit_684_Obj(byte inCS,byte inRST)
   :displayObj(true,true,false,true,false) {
 
@@ -51,6 +53,31 @@ void adafruit_684_Obj::drawVLine(int x,int y,int height,colorObj* inColor)						
 void adafruit_684_Obj::drawHLine(int x,int y,int width,colorObj* inColor)										{ theOLED->drawFastHLine(gX(x),gY(y),width,inColor->getColor16()); }
 void adafruit_684_Obj::drawLine(int x,int y,int x2,int y2,colorObj* inColor)									{ theOLED->drawLine(gX(x),gY(y),gX(x2),gY(y2),inColor->getColor16()); }
 void adafruit_684_Obj::drawPixel(int x,int y,colorObj* pColor)														{ theOLED->drawPixel(gX(x),gY(y),pColor->getColor16()); }
+
+/*
+void adafruit_684_Obj::drawPixel(int x,int y,colorObj* pColor) {
+
+	int	t;
+	
+	switch(theOLED->getRotation()) {
+		case 1:
+			 t = x;
+			 x = OLED_WIDTH  - 1 - y;
+			 y = t;
+			 break;
+		case 2:
+			 x = OLED_WIDTH  - 1 - x;
+			 y = OLED_HEIGHT - 1 - y;
+			 break;
+		case 3:
+			 t = x;
+			 x = y;
+			 y = OLED_HEIGHT - 1 - t;
+			 break;
+	}
+	theOLED->drawPixel(gX(x),gY(y),pColor->getColor16());
+}
+*/
 
 /*
 void	adafruit_684_Obj::blit(int locX,int locY,bitmap* inBitmap) {
