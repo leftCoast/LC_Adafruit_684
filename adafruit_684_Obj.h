@@ -10,6 +10,10 @@
 #define INV_PORTRAIT  2  // Wires down
 #define INV_LANDSCAPE 3  // Wires right
 
+
+extern float	percBlack;
+
+
 class adafruit_684_Obj : public displayObj {
 
   public :
@@ -39,11 +43,11 @@ class adafruit_684_Obj : public displayObj {
 	virtual 	void	drawVLine(int x,int y,int height,colorObj* inColor);
 	virtual 	void	drawHLine(int x,int y,int width,colorObj* inColor);
 	virtual 	void	drawLine(int x,int y,int x2,int y2,colorObj* inColor);
-	virtual 	void	drawPixel(int x,int y,colorObj* pColor);
-	 //virtual	void	blit(int locX,int locY,bitmap* inBitmap);
-
+	virtual 	void	drawPixel(int x,int y,colorObj* inColor);
+	
+	
   private:
-          Adafruit_SSD1331* theOLED;
-          byte              cs;
-          byte              rst;
+          Adafruit_SSD1331*	theOLED;
+          byte              	cs;
+          byte              	rst;
 };
