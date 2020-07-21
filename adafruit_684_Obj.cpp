@@ -9,7 +9,8 @@ colorObj	gColor;
 
 colorObj* sDim(colorObj* inColor) {
 
-	if (percBlack==0) return inColor;
+	//return inColor;							// Debug. Keeps display on.
+	if (percBlack<=0) return inColor;
 	if (percBlack>=100) return &black;
 	gColor.setColor(inColor);
 	gColor.blend(&black,percBlack);
