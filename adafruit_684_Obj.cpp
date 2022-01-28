@@ -55,7 +55,7 @@ void adafruit_684_Obj::setTextSize(byte inSize)																			{ theOLED->set
 void adafruit_684_Obj::setTextWrap(boolean wrap)																		{ theOLED->setTextWrap(wrap); }
 void adafruit_684_Obj::setFont(const GFXfont* font)																	{ theOLED->setFont(font); }
 void adafruit_684_Obj::setCursor(int x,int y)																			{ theOLED->setCursor(gX(x),gY(y)); }
-void adafruit_684_Obj::drawText(char* inText)																			{ theOLED->print(inText); }
+void adafruit_684_Obj::drawText(const char* inText)																	{ theOLED->print(inText); }
 void adafruit_684_Obj::fillScreen(colorObj* inColor)																	{ theOLED->fillScreen(sDim(inColor)->getColor16()); }
 void adafruit_684_Obj::fillRect(int x,int y,int width,int height,colorObj* inColor)							{ theOLED->fillRect(gX(x),gY(y), width, height,sDim(inColor)->getColor16()); }
 void adafruit_684_Obj::drawRect(int x,int y,int width,int height,colorObj* inColor)							{ theOLED->drawRect(gX(x),gY(y), width, height,sDim(inColor)->getColor16()); }

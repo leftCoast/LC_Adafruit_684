@@ -30,7 +30,7 @@ class adafruit_684_Obj : public displayObj {
 	virtual 	void	setTextWrap(boolean wrap);
 	virtual 	void	setFont(const GFXfont* font);
 	virtual 	void	setCursor(int x,int y);
-	virtual 	void	drawText(char* inText);
+	virtual 	void	drawText(const char* inText);
 	virtual 	void	fillScreen(colorObj* inColor);
 	virtual 	void	fillRect(int x,int y,int width,int height,colorObj* inColor);
 	virtual 	void	drawRect(int x,int y,int width,int height,colorObj* inColor);
