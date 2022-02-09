@@ -39,7 +39,10 @@ class adafruit_684_Obj : public displayObj {
 	virtual 	void	fillRoundRect(int x,int y,int width,int height,int radius,colorObj* inColor);
 	virtual 	void	drawRoundRect(int x,int y,int width,int height,int radius,colorObj* inColor);
 	virtual 	void	drawCircle(int x,int y,int diam, colorObj* inColor);
+	virtual	void	drawCircleHelper(int x,int y,int rad,byte corner,colorObj* inColor);
 	virtual 	void	fillCircle(int x,int y,int diam, colorObj* inColor);
+	virtual	void	drawTriangle(point* pt0,point* pt1,point* pt2,colorObj* inColor);
+	virtual	void	fillTriangle(point* pt0,point* pt1,point* pt2,colorObj* inColor);
 	virtual 	void	drawVLine(int x,int y,int height,colorObj* inColor);
 	virtual 	void	drawHLine(int x,int y,int width,colorObj* inColor);
 	virtual 	void	drawLine(int x,int y,int x2,int y2,colorObj* inColor);
