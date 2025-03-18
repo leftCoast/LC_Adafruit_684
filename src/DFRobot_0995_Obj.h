@@ -1,6 +1,10 @@
+
+#ifndef DFRobot_0995_Obj_h
+#define DFRobot_0995_Obj_h
+
 #include "displayObj.h"
 #include <Adafruit_GFX.h>
-#include <Adafruit_SSD1331.h>
+#include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
 #include <LC_SPI.h>
 
 
@@ -14,15 +18,15 @@
 extern float	percBlack;
 
 
-class adafruit_684_Obj : public displayObj {
+class DFRobot_0995_Obj : public displayObj {
 
   public :
-  				adafruit_684_Obj(byte inCS,byte inRST=-1);
-  virtual	~adafruit_684_Obj(void);
+  				DFRobot_0995_Obj(byte inCS,byte inRST);
+  virtual	~DFRobot_0995_Obj(void);
   
 	virtual	int	width(void);
 	virtual	int	height(void);
-	virtual 	bool	dispObjBegin(void);
+	virtual 	bool	begin(void);
 	virtual 	void	setRotation(byte inRotation);
 	virtual 	void	setTextColor(colorObj* tColor);
 	virtual 	void	setTextColor(colorObj* tColor,colorObj* bColor);
@@ -50,7 +54,10 @@ class adafruit_684_Obj : public displayObj {
 	
 	
   private:
-          Adafruit_SSD1331*	theOLED;
+          Adafruit_ST7789*		theTFT;
           byte              	cs;
           byte              	rst;
 };
+//Adafruit_ST7789 tft = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
+
+#endif
