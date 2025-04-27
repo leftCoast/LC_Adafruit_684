@@ -26,6 +26,7 @@ adafruit_684_Obj::adafruit_684_Obj(byte inCS,byte inRST)
   rst = inRST;
 }
 
+
 adafruit_684_Obj::~adafruit_684_Obj(void) {
 
     if (theOLED) { 
@@ -66,8 +67,8 @@ void adafruit_684_Obj::drawRoundRect(int x,int y,int width,int height,int radius
 void adafruit_684_Obj::drawCircle(int x,int y,int diam, colorObj* inColor)										{ drawRoundRect(gX(x),gY(y),diam,diam,diam/2,inColor); }
 void adafruit_684_Obj::drawCircleHelper(int x,int y,int rad,byte corner,colorObj* inColor)				{ theOLED->drawCircleHelper(gX(x),gY(y),rad,corner,inColor->getColor16()); }
 void adafruit_684_Obj::fillCircle(int x,int y,int diam, colorObj* inColor)										{ fillRoundRect(gX(x),gY(y),diam,diam,diam/2,inColor); }
-void adafruit_684_Obj::drawTriangle(point* pt0,point* pt1,point* pt2,colorObj* inColor) 					{ theOLED->drawTriangle(gX(pt0->x),gX(pt0->y),gX(pt1->x),gX(pt1->y),gX(pt2->x),gX(pt2->y),inColor->getColor16()); }
-void adafruit_684_Obj::fillTriangle(point* pt0,point* pt1,point* pt2,colorObj* inColor)					{ theOLED->fillTriangle(gX(pt0->x),gX(pt0->y),gX(pt1->x),gX(pt1->y),gX(pt2->x),gX(pt2->y),inColor->getColor16()); }
+void adafruit_684_Obj::drawTriangle(point* pt0,point* pt1,point* pt2,colorObj* inColor) 					{ theOLED->drawTriangle(gP(pt0).x,gP(pt0).y,gP(pt1).x,gP(pt1).y,gP(pt2).x,gP(pt2).y,inColor->getColor16()); }
+void adafruit_684_Obj::fillTriangle(point* pt0,point* pt1,point* pt2,colorObj* inColor)					{ theOLED->fillTriangle(gP(pt0).x,gP(pt0).y,gP(pt1).x,gP(pt1).y,gP(pt2).x,gP(pt2).y,inColor->getColor16()); }
 void adafruit_684_Obj::drawVLine(int x,int y,int height,colorObj* inColor)										{ theOLED->drawFastVLine(gX(x),gY(y),height,sDim(inColor)->getColor16()); }
 void adafruit_684_Obj::drawHLine(int x,int y,int width,colorObj* inColor)										{ theOLED->drawFastHLine(gX(x),gY(y),width,sDim(inColor)->getColor16()); }
 void adafruit_684_Obj::drawLine(int x,int y,int x2,int y2,colorObj* inColor)									{ theOLED->drawLine(gX(x),gY(y),gX(x2),gY(y2),sDim(inColor)->getColor16()); }
