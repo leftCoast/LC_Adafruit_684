@@ -1,3 +1,6 @@
+#ifndef adafruit_684_Obj_h
+#define adafruit_684_Obj_h
+
 #include "displayObj.h"
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1331.h>
@@ -11,7 +14,6 @@
 #define INV_LANDSCAPE 3  // Wires right
 
 
-extern float	percBlack;
 
 
 class adafruit_684_Obj : public displayObj {
@@ -22,7 +24,7 @@ class adafruit_684_Obj : public displayObj {
   
 	virtual	int	width(void);
 	virtual	int	height(void);
-	virtual 	bool	dispObjBegin(void);
+	virtual 	bool	begin(void);
 	virtual 	void	setRotation(byte inRotation);
 	virtual 	void	setTextColor(colorObj* tColor);
 	virtual 	void	setTextColor(colorObj* tColor,colorObj* bColor);
@@ -54,3 +56,5 @@ class adafruit_684_Obj : public displayObj {
           byte              	cs;
           byte              	rst;
 };
+
+#endif
