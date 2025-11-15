@@ -7,14 +7,6 @@
 #include <LC_SPI.h>
 
 
-// Rotation
-#define PORTRAIT      0  // Wires up
-#define LANDSCAPE     1  // Wires left
-#define INV_PORTRAIT  2  // Wires down
-#define INV_LANDSCAPE 3  // Wires right
-
-
-
 
 class adafruit_684_Obj : public displayObj {
 
